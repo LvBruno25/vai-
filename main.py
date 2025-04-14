@@ -142,6 +142,6 @@ git commit -m "feat: suporte a PUTs no ranking de opções"
 git push origin main
 # ... todas as funções acima ...
 
-# TESTE DE ENVIO DE MENSAGEM
-enviar_telegram("🚀 Robô conectado com sucesso aao grupo do Telegram!")
+tokenizer = AutoTokenizer.from_pretrained("./finbert")
+model = AutoModelForSequenceClassification.from_pretrained("./finbert")
 
