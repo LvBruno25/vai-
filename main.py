@@ -140,4 +140,8 @@ while True:
         git add main.py
 git commit -m "feat: suporte a PUTs no ranking de opções"
 git push origin main
+# ... todas as funções acima ...
+
+# TESTE DE ENVIO DE MENSAGEM
+enviar_telegram("🚀 Robô conectado com sucesso ao grupo do Telegram!")
 
