@@ -137,3 +137,7 @@ while True:
     else:
         print("Fora do horário de mercado. Aguardando...")
         time.sleep(600)
+        git add main.py
+git commit -m "feat: suporte a PUTs no ranking de opções"
+git push origin main
+
