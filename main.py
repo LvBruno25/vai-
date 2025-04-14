@@ -143,5 +143,5 @@ git push origin main
 # ... todas as funções acima ...
 
 # TESTE DE ENVIO DE MENSAGEM
-enviar_telegram("🚀 Robô conectado com sucesso ao grupo do Telegram!")
+enviar_telegram("🚀 Robô conectado com sucesso aao grupo do Telegram!")
 
