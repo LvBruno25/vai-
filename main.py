@@ -144,4 +144,8 @@ git push origin main
 
 tokenizer = AutoTokenizer.from_pretrained("./finbert")
 model = AutoModelForSequenceClassification.from_pretrained("./finbert")
+git add finbert/ main.py
+git commit -m "feat: usar modelo FinBERT local"
+git push origin main
+
 
