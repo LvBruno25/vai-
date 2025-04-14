@@ -1,0 +1,5 @@
+yfinance
+transformers
+torch
+beautifulsoup4
+python-telegram-bot==13.15
