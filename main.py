@@ -137,6 +137,13 @@ while True:
     else:
         print("Fora do horário de mercado. Aguardando...")
         time.sleep(600)
-       
+       # Comentando o loop principal temporariamente
+# while True:
+#     hora_atual = datetime.utcnow().hour
+#     ...
+
+# Teste de envio
+enviar_telegram("✅ Robô funcionando! Teste de envio concluído com sucesso.")
+
 
 
