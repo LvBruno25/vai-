@@ -13,8 +13,9 @@ TELEGRAM_TOKEN = "SEU_TOKEN_AQUI"
 CHAT_ID = "SEU_CHAT_ID_AQUI"
 NEWSAPI_KEY = "SUA_NEWSAPI_KEY_AQUI"
 
-tokenizer = AutoTokenizer.from_pretrained("ProsusAI/finbert")
-model = AutoModelForSequenceClassification.from_pretrained("ProsusAI/finbert")
+tokenizer = AutoTokenizer.from_pretrained("./finbert")
+model = AutoModelForSequenceClassification.from_pretrained("./finbert")
+
 labels = ["negative", "neutral", "positive"]
 
 def analisar_sentimento_finbert(texto):
