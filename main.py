@@ -9,12 +9,12 @@ from bs4 import BeautifulSoup
 from telegram import Bot
 
 MAX_OPTION_PRICE = 2.00
-TELEGRAM_TOKEN = "SEU_TOKEN_AQUI"
-CHAT_ID = "SEU_CHAT_ID_AQUI"
-NEWSAPI_KEY = "SUA_NEWSAPI_KEY_AQUI"
+TELEGRAM_TOKEN = "AAH3TTyPodkIZ91Uujy1BG"
+CHAT_ID = "5929035911"
+NEWSAPI_KEY = "93f2cf596e69432995c15ffd99662e9d"
+tokenizer = AutoTokenizer.from_pretrained("./finbert", local_files_only=True)
+model = AutoModelForSequenceClassification.from_pretrained("./finbert", local_files_only=True)
 
-tokenizer = AutoTokenizer.from_pretrained("./finbert")
-model = AutoModelForSequenceClassification.from_pretrained("./finbert")
 
 labels = ["negative", "neutral", "positive"]
 
