@@ -12,11 +12,12 @@ MAX_OPTION_PRICE = 2.00
 TELEGRAM_TOKEN = "AAH3TTyPodkIZ91Uujy1BG"
 CHAT_ID = "5929035911"
 NEWSAPI_KEY = "93f2cf596e69432995c15ffd99662e9d"
-tokenizer = AutoTokenizer.from_pretrained("./finbert", local_files_only=True)
-model = AutoModelForSequenceClassification.from_pretrained("./finbert", local_files_only=True)
+from pathlib import Path
 
-tokenizer = AutoTokenizer.from_pretrained("./finbert", local_files_only=True)
-model = AutoModelForSequenceClassification.from_pretrained("./finbert", local_files_only=True)
+finbert_path = Path(__file__).resolve().parent / "finbert"
+
+tokenizer = AutoTokenizer.from_pretrained(str(finbert_path), local_files_only=True)
+model = AutoModelForSequenceClassification.from_pretrained(str(finbert_path), local_files_only=True)
 
 labels = ["negative", "neutral", "positive"]
 
