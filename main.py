@@ -15,6 +15,8 @@ NEWSAPI_KEY = "93f2cf596e69432995c15ffd99662e9d"
 tokenizer = AutoTokenizer.from_pretrained("./finbert", local_files_only=True)
 model = AutoModelForSequenceClassification.from_pretrained("./finbert", local_files_only=True)
 
+tokenizer = AutoTokenizer.from_pretrained("./finbert", local_files_only=True)
+model = AutoModelForSequenceClassification.from_pretrained("./finbert", local_files_only=True)
 
 labels = ["negative", "neutral", "positive"]
 
