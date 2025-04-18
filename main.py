@@ -9,9 +9,11 @@ from bs4 import BeautifulSoup
 from telegram import Bot
 
 MAX_OPTION_PRICE = 2.00
-TELEGRAM_TOKEN = "AAH3TTyPodkIZ91Uujy1BG"
-CHAT_ID = "5929035911"
-NEWSAPI_KEY = "93f2cf596e69432995c15ffd99662e9d"
+import os
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
+NEWSAPI_KEY = os.getenv("NEWSAPI_KEY")
+
 from pathlib import Path
 
 finbert_path = Path(__file__).resolve().parent / "finbert"
