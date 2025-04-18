@@ -18,8 +18,12 @@ from pathlib import Path
 
 finbert_path = Path(__file__).resolve().parent / "finbert"
 
-tokenizer = AutoTokenizer.from_pretrained(str(finbert_path), local_files_only=True)
-model = AutoModelForSequenceClassification.from_pretrained(str(finbert_path), local_files_only=True)
+tokenizer = AutoTokenizer.from_pretrained(
+    str(finbert_path),
+    local_files_only=True,
+    use_auth_token=False
+)
+
 
 labels = ["negative", "neutral", "positive"]
 
