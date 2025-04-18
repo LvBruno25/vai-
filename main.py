@@ -23,6 +23,7 @@ model = AutoModelForSequenceClassification.from_pretrained(
     str(finbert_path),
     local_files_only=True,
     use_auth_token=False
+)
 
 labels = ["negative", "neutral", "positive"]
 
