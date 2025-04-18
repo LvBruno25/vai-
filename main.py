@@ -34,10 +34,15 @@ def converter_sentimento_score(sentimento):
     return 1 if sentimento == "positive" else 0.5 if sentimento == "neutral" else 0
 
 def buscar_noticias_sentimento(ticker):
-    url = f'https://newsapi.org/v2/everything?q={ticker}&sortBy=publishedAt&apiKey={NEWSAPI_KEY}&language=en'
-    r = requests.get(url)
-    artigos = r.json().get('articles', [])[:3]
-    return [(a['title'], analisar_sentimento_finbert(a['title'])) for a in artigos]
+    try:
+        url = f'https://newsapi.org/v2/everything?q={ticker}&sortBy=publishedAt&apiKey={NEWSAPI_KEY}&language=en'
+        r = requests.get(url)
+        artigos = r.json().get('articles', [])[:3]
+        return [(a['title'], analisar_sentimento_finbert(a['title'])) for a in artigos]
+    except Exception as e:
+        print(f"[Erro ao buscar notícias] {ticker}: {e}")
+        return []
+
 
 def verificar_insider_buy(ticker):
     url = f"http://openinsider.com/screener?s={ticker}&o=&pl=&ph=&ll=&lh=&fd=30"
@@ -129,8 +134,21 @@ def montar_alerta_para(ticker):
 
     enviar_telegram(texto)
     
-# Teste de envio
-enviar_telegram("✅ Robô funcionando! Teste de envio concluído com sucesso.")
+while True:
+    hora_atual = datetime.utcnow().hour
+    if 13 <= hora_atual <= 20:
+        ativos = buscar_10_mais_ativos()
+        for ativo in ativos:
+            try:
+                montar_alerta_para(ativo)
+                time.sleep(10)
+            except Exception as e:
+                print(f"Erro ao analisar {ativo}: {e}")
+        time.sleep(1800)  # espera 30 min até a próxima rodada
+    else:
+        print("Fora do horário de mercado. Aguardando...")
+        time.sleep(600)  # espera 10 min até reavaliar
+
 
 
 
