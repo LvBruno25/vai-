@@ -7,28 +7,22 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 from bs4 import BeautifulSoup
 from telegram import Bot
-
-MAX_OPTION_PRICE = 2.00
 import os
-TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
-CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
-NEWSAPI_KEY = os.getenv("NEWSAPI_KEY")
-
 from pathlib import Path
 
+# Caminho absoluto da pasta finbert
+finbert_path = Path(__file__).resolve().parent / "finbert"
+
+# Carregando modelo FinBERT local
 tokenizer = AutoTokenizer.from_pretrained(
     str(finbert_path),
     local_files_only=True,
     use_auth_token=False
 )
-
 model = AutoModelForSequenceClassification.from_pretrained(
     str(finbert_path),
     local_files_only=True,
     use_auth_token=False
-)
-
-
 
 labels = ["negative", "neutral", "positive"]
 
