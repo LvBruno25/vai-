@@ -134,21 +134,6 @@ def montar_alerta_para(ticker):
 
     enviar_telegram(texto)
     
-while True:
-    hora_atual = datetime.utcnow().hour
-    if 13 <= hora_atual <= 20:
-        ativos = buscar_10_mais_ativos()
-        for ativo in ativos:
-            try:
-                montar_alerta_para(ativo)
-                time.sleep(10)
-            except Exception as e:
-                print(f"Erro ao analisar {ativo}: {e}")
-        time.sleep(1800)  # espera 30 min até a próxima rodada
-    else:
-        print("Fora do horário de mercado. Aguardando...")
-        time.sleep(600)  # espera 10 min até reavaliar
-
-
+enviar_telegram("✅ Teste: robô está rodando com variáveis de ambiente e modelo local!")
 
 
